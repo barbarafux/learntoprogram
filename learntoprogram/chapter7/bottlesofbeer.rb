@@ -1,3 +1,6 @@
+# “99 Bottles of Beer on the Wall.” Write a program that prints out
+# the lyrics to that beloved classic, “99 Bottles of Beer on the Wall.”
+
 number = 99
 while number > 2
   puts "#{number} bottles of beer on the wall, #{number} bottles of beer."
