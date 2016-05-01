@@ -1,38 +1,46 @@
 class Dog
 
-  attr_accessor :name, :age
+attr_reader :name, :age
 
-  # def name=(new_value)
-  #   @name = new_value
-  # end
+  def name=(value)
+    if value == ""
+      raise "Name can't be blank."
+    end
+    @name = value
+  end
 
-  # def name
-  #   @name
-  # end
+  def age=(value)
+    if value < 0
+      raise "An age of #{value} isn't valid."
+    end
+    @age = value
+  end
 
-  # def age=(age_value)
-  #   @age = age_value
-  # end
+  def talk
+    puts "#{@name} says Bark!"
+  end
 
-  # def age
-  #   @age
-  # end
+  def move(destination)
+    puts "#{@name} moves to #{destination}."
+  end
 
   def report_age
-    puts "#{@name} is #{@age}."
+    puts "#{@name} is #{@age} years old."
   end
 
 end
 
 fido = Dog.new
-
+# fido.name = ""
 fido.name = "Fido"
-fido.age = 10
+# fido.age = -1
+fido.age = 4
 fido.report_age
-fido.age = 12
-fido.report_age
-
+fido.talk
+fido.move("Kitchen")
+puts ""
 fiona = Dog.new
 fiona.name = "Fiona"
 fiona.age = 5
 fiona.report_age
+fiona.move("Living Room")
