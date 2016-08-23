@@ -10,14 +10,14 @@ class Employee
 
   def salary=(salary)
     if salary < 0
-      raise "Salary can't be #{salary}."
+      raise "Salary of #{salary} isn't valid."
     end
     @salary = salary
   end
 
   def initialize(name = "Anonymous", salary = 0.00)
-    @name = name
-    @salary = salary
+    self.name = name
+    self.salary = salary
   end
 
   def print_pay_stub
@@ -45,3 +45,4 @@ end
 Employee.new("Kara Byrd", 45000).print_pay_stub
 Employee.new("Kara Byrd").print_pay_stub
 Employee.new.print_pay_stub
+#Employee.new("Kara", -4520)
