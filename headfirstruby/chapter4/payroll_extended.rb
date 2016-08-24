@@ -1,5 +1,5 @@
 class Employee
-  attr_reader :name, :salary
+  attr_reader :name
 
   def initialize(name = "Anonymous")
     self.name = name
@@ -36,7 +36,7 @@ class SalariedEmployee < Employee
     print_name
     pay_per_period = (salary/365.0) * 14.0
     formatted_pay = format("%0.2f", pay_per_period)
-    puts "The pay for the period is #{formatted_pay}."
+    puts "The pay for the period is $#{formatted_pay}."
   end
 end
 
@@ -63,12 +63,24 @@ class HourlyEmployee < Employee
     @hours_per_week = hours_per_week
   end
 
+  def self.security_guard(name)
+    HourlyEmployee.new(name, 19.25, 30)
+  end
+
+  def self.cashier(name)
+    HourlyEmployee.new(name, 12.75, 25)
+  end
+
+  def self.janitor(name)
+    HourlyEmployee.new(name, 10.50, 20)
+  end
+
   def print_pay_stub
     print_name
 
     pay_per_period = (hourly_wage * hours_per_week) * 2
     formatted_pay = format("%0.2f", pay_per_period)
-    puts "The pay for the period is #{formatted_pay}."
+    puts "The pay for the period is $#{formatted_pay}."
   end
 
 end
@@ -85,9 +97,17 @@ end
 # hourlyEmployee.hours_per_week = 30
 # hourlyEmployee.print_pay_stub
 #
-salariedEmployee = SalariedEmployee.new("Jane Doe", 50000)
-salariedEmployee.print_pay_stub
+# salariedEmployee = SalariedEmployee.new("Jane Doe", 50000)
+# salariedEmployee.print_pay_stub
 
-hourlyEmployee = HourlyEmployee.new("John Smith", 14.97, 30)
-hourlyEmployee.print_pay_stub
+# hourlyEmployee = HourlyEmployee.new("John Smith", 14.97, 30)
+# hourlyEmployee.print_pay_stub
+#
+angela = HourlyEmployee.security_guard("Angela Matthews")
+edwin = HourlyEmployee.janitor("Edwin Burgess")
+ivan = HourlyEmployee.cashier("Ivan Stokes")
+
+angela.print_pay_stub
+edwin.print_pay_stub
+ivan.print_pay_stub
 
