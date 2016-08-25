@@ -6,4 +6,5 @@ input = gets.chomp.to_i
 sum = 0
 
 (1..input).each {|num| sum += num }
-  puts sum.to_i
+
+puts sum.to_i
